@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .galaxy {
+            background-image: url(img/galaxy.jfif);
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100vh;
+            object-fit: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            transform-style: preserve-3d;
+
+            &:hover {
+                >.orbit {
+                    >.earth {
+                        transform: translate(-50%, -50%) rotate(1440deg);
+
+                        >div {
+                            transform: rotateX(90deg)rotateY(-1440deg);
+                            background-position: -100px;
+                        }
+                    }
+                }
+            }
+
+            >.sun {
+                width: 350px;
+                height: 350px;
+                background-color: gold;
+                border-radius: 50%;
+                box-shadow: 0 0 150px 2px gold;
+                transform: translateZ(400px);
+            }
+
+            >.orbit {
+                width: 600px;
+                height: 600px;
+                /* border: 2px solid white; */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate3d(-50%, -50%, 350px) rotateX(77deg);
+                border-radius: 50%;
+                transform-style: preserve-3d;
+
+                >.earth {
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
+                    /* background-color: blue; */
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    transform: translate(-50%, -50%);
+                    transform-origin: 350px 50%;
+                    transition: 30s linear;
+                    transform-style: preserve-3d;
+
+                    >div {
+                        width: 100%;
+                        height: 100%;
+                        /* background-color: red; */
+                        background-image: url(./img/poster.jpg);
+                        background-size: auto 100%;
+                        transition: 30s linear;
+                        border-radius: 50%;
+                        transform: rotateX(90deg);
+                        box-shadow: inset 0 0 10px 1px black;
+                    }
+                }
+
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="galaxy">
+        <div class="sun"></div>
+        <div class="orbit">
+            <div class="earth">
+                <div></div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>
